@@ -52,7 +52,7 @@ Cuando se terminan de insertar todas las palabras dentro del vector de strings, 
 </div>
 
 ## 3. Estructura
-La estructura proporcionada tiene un vector de strings, donde se guardan las palabras que se separan del string recibido, además tiene un campo llamado 'cantidad' que permite guardar la cantidad de palabras, para luego reservar memoria que se utiliza en el vector de strings. 
+La estructura proporcionada tiene un vector de strings, donde se guardan las palabras que se separan del string recibido. Además tiene un campo llamado 'cantidad' que permite guardar la cantidad de palabras, para luego reservar la memoria que se utiliza en el vector de strings. 
 
 ### 3.1. Diagrama de memoria
 
@@ -62,10 +62,7 @@ La estructura proporcionada tiene un vector de strings, donde se guardan las pal
 </div>
 
 ## 4. Decisiones de diseño y/o complejidades de implementación
-Explicar las decisiones de diseño y/o las complejidades de implementación que hubo durante la resolución del TP.
-
-## 4. Decisiones de diseño y/o complejidades de implementación (EJEMPLO)
-La mayor complejidad en el TP se encuentra en la función `foo` que requiere hacer...; es por esto que decidí.... Además, decidí que el programa haga... para mejorar la implementación.
+La mayor complejidad en el TP la encontré al momento de separar el string y guardar las palabras dentro del vector de string. Para esto, recorrí el string caracter por caracter hasta encontrar el separador, guardando en un puntero a un int la posición del separador para que sea el inicio de la siguiente búsqueda, y los guarde en un nuevo vector de char. Esto se repite hasta llegar al final del string. 
 
 ## 5. Respuestas a las preguntas teóricas
 
