@@ -1,8 +1,4 @@
-<div align="right">
-    <img width="32px" src="img/algo2.svg">
-</div>
-
-# TP
+# TP0
 
 ## Información del estudiante
 
@@ -20,7 +16,6 @@
 * [2. Funcionamiento](#2-Funcionamiento)
 * [3. Estructura](#3-Estructura)
   * [3.1. Diagrama de memoria](#31-Diagrama-de-memoria)
-  * [3.2. Análisis de complejidades](#32-Análisis-de-complejidades)
 * [4. Decisiones de diseño y/o complejidades de implementación](#4-Decisiones-de-diseño-yo-complejidades-de-implementación)
 * [5. Respuestas a las preguntas teóricas](#5-Respuestas-a-las-preguntas-teóricas)
 
@@ -73,15 +68,11 @@ Explicar las decisiones de diseño y/o las complejidades de implementación que 
 La mayor complejidad en el TP se encuentra en la función `foo` que requiere hacer...; es por esto que decidí.... Además, decidí que el programa haga... para mejorar la implementación.
 
 ## 5. Respuestas a las preguntas teóricas
-Deberás incluir en esta sección las respuestas a las preguntas teóricas indicadas en el [enunciado](./ENUNCIADO.md) del TP.
 
-## 5. Respuestas a las preguntas teóricas (EJEMPLO)
+### 5.1. Explique cómo funcionan los strings en C
+Un string es una cadena de caracteres usada para representar texto. Para guardar un string en C, se debe utilizar `char *`, que es un puntero a la primera posición del vector de caracteres (char). Para indicar el final de un string se utiliza `\0`. 
 
-### 5.1. ¿Porqué...?
-Respondido en su respectiva sección.
+### 5.2. Explique el funcionamiento de las primitivas `malloc` y `free`.
+Cuando utilizamos `malloc`, le estamos indicando al sistema operativo que queremos usar memoria del heap. Lo que hace es reservar memoria de una cantidad determinada de bytes para un tipo de dato, y devuelve un puntero a la dirección de memoria reservada.
 
-### 5.2 ¿Cómo...?
-Para implementar el....
-
-### 5.3 ¿Cuál fue el...?
-El motivo fue....
+Es importante que siempre que haya un llamado a `malloc`, luego hagamos una llamada a `free`, que es la función que se encarga de liberar esa memoria reservada previamente.
