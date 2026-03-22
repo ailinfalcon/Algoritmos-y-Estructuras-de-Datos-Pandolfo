@@ -39,8 +39,8 @@ Para separar las palabras del texto recibido, se recorre el string, primero desd
 Cuando se terminan de insertar todas las palabras dentro del vector de strings, se define un struct que contiene la cantidad de palabras y el vector de strings.
 
 <div align="center">
-  <img src="img/diagrama_flujo_programa.svg" width="70%">
-  <p>Diagrama de flujo del programa explicado con más detalle.</p>
+  <img src="img/diagrama de flujo (1).svg" width="70%">
+  <p>Diagrama de memoria de la estructura.</p>
 </div>
 
 ## 3. Estructura
