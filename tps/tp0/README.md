@@ -21,22 +21,14 @@
 
 ## 1. Instrucciones
 
-> [!TIP]
-> Se recomienda usar un Makefile y colocar en esta sección los comandos Make.
-
 ### 1.1. Compilar el proyecto
 ```bash
-comando
-```
-
-### 1.2. Ejecutar las pruebas
-```bash
-comando
+gcc src/split.c -Wall -Werror -std=c99 -o split
 ```
 
 ### 1.3. Ejecutar el programa con Valgrind
 ```bash
-comando
+valgrind --leak-check=full ./split
 ```
 
 ## 2. Funcionamiento
