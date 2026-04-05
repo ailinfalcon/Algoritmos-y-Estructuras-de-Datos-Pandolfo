@@ -93,7 +93,7 @@ Guarda todos los pokemones de la estructura `tp1_t` pasada por parámetro en un 
 ### `tp1_buscar_nombre:` 
 
 <div align="left">
-  <img src="img/diagrama de flujo_buscar nombre.svg" width="80%">
+  <img src="img/diagrama de flujo_buscar nombre.svg" width="100%">
   <p>Diagrama de flujo tp1_buscar_nombre</p>
 </div>
 
@@ -108,7 +108,7 @@ Guarda todos los pokemones de la estructura `tp1_t` pasada por parámetro en un 
 ### `tp1_buscar_orden:` 
 
 <div align="left">
-  <img src="img/diagrama de flujo_con cada pokemon.svg" width="80%">
+  <img src="img/diagrama de flujo_con cada pokemon.svg" width="100%">
   <p>Diagrama de flujo tp1_buscar_orden</p>
 </div>
 
