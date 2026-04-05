@@ -46,17 +46,19 @@ valgrind --leak-check=full ./main
 
 ## 2. Funcionamiento
 
-###`tp1_leer_archivo:` 
+## `tp1_leer_archivo:` 
 Lee el archivo CSV linea por linea y guarda los pokemones en una estructura `'tp1_t'`, verifica que el pokemon no exista dentro de la misma y lo guarda, pero no verifica que los datos sean inválidos. Al finalizar, devuelve un puntero a la estructura `'tp1_t'` o `NULL` si no se pudo leer correctamente el archivo.
 <div align="center">
-  <img src="img/diagrama de flujo_leer archivo.svg" width="70%">
+  <img src="img/diagrama de flujo_leer archivo.svg" width="100%">
   <p>Diagrama de flujo tp1_leer_archivo</p>
 </div>
 
 `leer_linea_completa:`
 <div align="center">
-  <img src="img/diagrama de flujo_leer linea completa.svg" width="70%">
+  <img src="img/diagrama de flujo_leer linea completa.svg" width="100%">
 </div>
+
+
 
 ## 2. Funcionamiento (EJEMPLO)
 
