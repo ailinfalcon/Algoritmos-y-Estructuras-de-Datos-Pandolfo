@@ -48,26 +48,26 @@ valgrind --leak-check=full ./main
 
 ### `tp1_leer_archivo:` 
 Lee el archivo CSV linea por linea y guarda los pokemones en una estructura `'tp1_t'`, verifica que el pokemon no exista dentro de la misma y lo guarda, pero no verifica que los datos sean inválidos. Al finalizar, devuelve un puntero a la estructura `'tp1_t'` o `NULL` si no se pudo leer correctamente el archivo.
-<div align="center">
+<div align="left">
   <img src="img/diagrama de flujo_leer archivo.svg" width="100%">
   <p>Diagrama de flujo tp1_leer_archivo</p>
 </div>
 
 
 `leer_linea_completa:`
-<div align="center">
+<div align="left">
   <img src="img/diagrama de flujo_leer linea completa.svg" width="100%">
 </div>
 
 
 `existe_pokemon:`
-<div align="center">
+<div align="left">
   <img src="img/diagrama de flujo_existe pokemon.svg" width="80%">
 </div>
 
 
 `guardar_pokemon:`
-<div align="center">
+<div align="left">
   <img src="img/diagrama de flujo_guardar pokemon.svg" width="80%">
 </div>
 
@@ -75,7 +75,7 @@ Lee el archivo CSV linea por linea y guarda los pokemones en una estructura `'tp
 ### `tp1_guardar_archivo:` 
 Guarda todos los pokemones de la estructura `tp1_t` pasada por parámetro en un archivo también pasado por parámetro, de manera tal que tp1_leer_archivo pueda leerlo correctamente. Devuelve NULL en caso de error, o en caso contrario devuelve `tp1_t`.
 
-<div align="center">
+<div align="left">
   <img src="img/diagrama de flujo_guardar archivo.svg" width="100%">
   <p>Diagrama de flujo tp1_guardar_archivo</p>
 </div>
@@ -83,7 +83,7 @@ Guarda todos los pokemones de la estructura `tp1_t` pasada por parámetro en un 
 
 ### `tp1_filtrar_tipo:` 
 
-<div align="center">
+<div align="left">
   <img src="img/diagrama de flujo_filtrar tipo.svg" width="100%">
   <p>Diagrama de flujo tp1_filtrar_tipo</p>
 </div>
@@ -92,14 +92,14 @@ Guarda todos los pokemones de la estructura `tp1_t` pasada por parámetro en un 
 
 ### `tp1_buscar_nombre:` 
 
-<div align="center">
+<div align="left">
   <img src="img/diagrama de flujo_buscar nombre.svg" width="80%">
   <p>Diagrama de flujo tp1_buscar_nombre</p>
 </div>
 
 
 `ordenar_pokemones:`
-<div align="center">
+<div align="left">
   <img src="img/diagrama de flujo_ordenar pokemones.svg" width="100%">
 </div>
 
@@ -107,7 +107,7 @@ Guarda todos los pokemones de la estructura `tp1_t` pasada por parámetro en un 
 
 ### `tp1_buscar_orden:` 
 
-<div align="center">
+<div align="left">
   <img src="img/diagrama de flujo_con cada pokemon.svg" width="80%">
   <p>Diagrama de flujo tp1_buscar_orden</p>
 </div>
@@ -116,7 +116,7 @@ Guarda todos los pokemones de la estructura `tp1_t` pasada por parámetro en un 
 
 ### `tp1_destruir:` 
 
-<div align="center">
+<div align="left">
   <img src="img/diagrama de flujo_destruir tp.svg" width=100%">
   <p>Diagrama de flujo tp1_destruir</p>
 </div>
