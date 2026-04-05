@@ -9,8 +9,12 @@
 ## Índice
 * [1. Instrucciones](#1-Instrucciones)
   * [1.1. Compilar el proyecto](#11-Compilar-el-proyecto)
-  * [1.2. Ejecutar las pruebas](#12-Ejecutar-las-pruebas)
-  * [1.3. Ejecutar el programa con Valgrind](#13-Ejecutar-el-programa-con-Valgrind)
+  * [1.2. Ejecutar proyecto](#12-Ejecutar-proyecto)
+  * [1.3. Acciones posibles](#13-Ejecutar-el-programa-con-Valgrind)
+  * [1.4. Ejecutar el programa con Valgrind](#14-Ejecutar-el-programa-con-Valgrind)
+  * [1.5. Compilar pruebas](#15-Compilar-pruebas)
+  * [1.6. Ejecutar pruebas](#16-Ejecutar-pruebas)
+  * [1.7. Ejecutar pruebas con Valgrind](#13-Ejecutar-pruebas-con-Valgrind)
 * [2. Funcionamiento](#2-Funcionamiento)
 * [3. Estructura](#3-Estructura)
   * [3.1. Diagrama de memoria](#31-Diagrama-de-memoria)
@@ -20,29 +24,41 @@
 
 ## 1. Instrucciones
 
-> [!TIP]
-> Se recomienda usar un Makefile y colocar en esta sección los comandos Make.
-
 ### 1.1. Compilar el proyecto
 ```bash
  gcc main.c src/tp1.c ../tp0/src/split.c -o main
 ```
 
-### 1.2. Ejecutar las pruebas
+### 1.2. Ejecutar proyecto
 ```bash
-gcc pruebas/pruebas_alumno.c  src/tp1.c ../tp0/src/split.c -o tp1
+./main archivo acción
 ```
 
-### 1.3. Ejecutar el programa con Valgrind
-```bash
-valgrind --leak-check=full ./main
-```
-
-## 1.4. Acciones posibles que se pueden realizar:
+## 1.3. Acciones posibles:
 
   - **./tp1 pokedex.csv buscar pikachu**: Busca un pokemon con el nombre pikachu y muestra sus datos por pantalla.
   - **./tp1 pokedex.csv mostrar nombre**: Muestra todos los pokemon por orden alfabetico.
   - **./tp1 pokedex.csv mostrar tipo**: Muestra todos los pokemon ordenados por tipo.
+
+### 1.4. Ejecutar el programa con Valgrind
+```bash
+valgrind --leak-check=full ./main archivo accion
+```
+
+### 1.5. Compilar pruebas
+```bash
+gcc pruebas/pruebas_alumno.c  src/tp1.c ../tp0/src/split.c -o tp1
+```
+
+### 1.6. Ejecutar pruebas
+```bash
+./tp1
+```
+
+### 1.7. Ejecutar pruebas con Valgrind
+```bash
+valgrind --leak-check=full ./tp1
+```
 
 ## 2. Funcionamiento
 
