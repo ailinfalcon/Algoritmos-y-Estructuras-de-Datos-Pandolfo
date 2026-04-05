@@ -46,12 +46,17 @@ valgrind --leak-check=full ./main
 
 ## 2. Funcionamiento
 
-
+###`tp1_leer_archivo:` 
+Lee el archivo CSV linea por linea y guarda los pokemones en una estructura `'tp1_t'`, verifica que el pokemon no exista dentro de la misma y lo guarda, pero no verifica que los datos sean inválidos. Al finalizar, devuelve un puntero a la estructura `'tp1_t'` o `NULL` si no se pudo leer correctamente el archivo.
+<div align="center">
+  <img src="img/diagramadeflujo_leer_archivo.svg" width="70%">
+  <p>Diagrama de flujo tp1_leer_archivo</p>
+</div>
 
 ## 2. Funcionamiento (EJEMPLO)
 
 <div align="center">
-  <img src="img/diagrama_flujo_programa.svg" width="70%">
+  <img src="img/diagrama_flujo.svg" width="70%">
   <p>Diagrama de flujo del programa explicado con más detalle.</p>
 </div>
 
@@ -69,16 +74,6 @@ Realizar un diagrama de memoria de la estructura de memoria durante la ejecució
   <img src="img/diagrama_memoria__1.svg" width="70%">
   <p>Diagrama de memoria de la estructura.</p>
 </div>
-
-
-### 3.2. Análisis de complejidades
-Explicar las complejidades de las diversas funciones que se implementaron en el programa. Esto debe incluir al menos a las funciones de la interfaz (el .h) del programa. Además, se debe ofrecer una justificación de la complejidad, es decir, por qué es esa la complejidad Big-O y no otra.
-
-### 3.2. Análisis de complejidades (EJEMPLO 1)
-En el programa tenemos funciones auxiliares y funciones principales (las que van en el .h). Respecto a estas funciones podemos analizar que:
-* `fun1` tiene una complejidad de $O(1)$ ya que tiene como parámetro... y, al leer una línea....
-* `fun2` tiene una complejidad de $O(n)$ ya que tiene como parámetro..., la cual....
-* `fun3` tiene una complejidad de $O(n^2)$ ya que tiene como parámetro... y se encarga de....
 
 ### 3.2. Análisis de complejidades (EJEMPLO 2)
 |      Función      |Complejidad|                 Justificación                  |

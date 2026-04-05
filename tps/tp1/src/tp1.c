@@ -198,19 +198,17 @@ tp1_t *tp1_leer_archivo(const char *nombre){
         return NULL;
     }
 
-    int cantidad_pokemones = 0;
-    char * leida = leer_linea_completa(archivo);
-
     struct pokemon **pokemones = malloc(TAMANIO_INICIAL*sizeof(struct pokemon*));
     if(!pokemones){
-        free(leida);
         free(tp1);
         fclose(archivo);
         return NULL;
     }
 
+    int cantidad_pokemones = 0;
+    char * leida = leer_linea_completa(archivo);
+
     size_t tamanio_bloque = TAMANIO_INICIAL;
-    int i = 0;
 
     while(leida){
         if(cantidad_pokemones == tamanio_bloque){
@@ -221,6 +219,7 @@ tp1_t *tp1_leer_archivo(const char *nombre){
                 free(pokemones);
                 free(leida);
                 tp1_destruir(tp1);
+                fclose(archivo);
                 return NULL;
             }
 
@@ -231,17 +230,17 @@ tp1_t *tp1_leer_archivo(const char *nombre){
         char *nombre_pokemon = vector->palabras[POSICION_NOMBRE];
 
         if(!existe_pokemon(pokemones, cantidad_pokemones, nombre_pokemon)){
-            int retorno = guardar_pokemon(pokemones, i, nombre_pokemon, vector->palabras[POSICION_TIPO], atoi(vector->palabras[POSICION_ATAQUE]), atoi(vector->palabras[POSICION_DEFENSA]), atoi(vector->palabras[POSICION_VELOCIDAD]));
+            int retorno = guardar_pokemon(pokemones, cantidad_pokemones, nombre_pokemon, vector->palabras[POSICION_TIPO], atoi(vector->palabras[POSICION_ATAQUE]), atoi(vector->palabras[POSICION_DEFENSA]), atoi(vector->palabras[POSICION_VELOCIDAD]));
 
             if(retorno != 0){
                 free(pokemones);
                 free(leida);
                 tp1_destruir(tp1);
+                fclose(archivo);
                 return NULL;
             }
 
             cantidad_pokemones++;
-            i++;
         }
 
         vector_destruir(vector);

@@ -8,7 +8,6 @@
 
 #define BUSCAR "buscar"
 #define MOSTRAR "mostrar"
-
 #define BLANCO "\x1b[37;1m"
 #define VERDE "\x1b[32;1m"
 #define ROJO "\x1b[31;1m"
