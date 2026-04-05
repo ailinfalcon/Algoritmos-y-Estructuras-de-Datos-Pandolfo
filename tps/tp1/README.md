@@ -76,7 +76,8 @@ Lee el archivo CSV linea por linea y guarda los pokemones en una estructura `'tp
 Guarda todos los pokemones de la estructura `tp1_t` pasada por parámetro en un archivo también pasado por parámetro, de manera tal que tp1_leer_archivo pueda leerlo correctamente. Devuelve NULL en caso de error, o en caso contrario devuelve `tp1_t`.
 
 <div align="center">
-  <img src="img/diagrama de flujo_guardar archivo.svg" width="80%">
+  <img src="img/diagrama de flujo_guardar archivo.svg" width="100%">
+  <p>Diagrama de flujo tp1_guardar_archivo</p>
 </div>
 
 
@@ -84,6 +85,7 @@ Guarda todos los pokemones de la estructura `tp1_t` pasada por parámetro en un 
 
 <div align="center">
   <img src="img/diagrama de flujo_filtrar tipo.svg" width="100%">
+  <p>Diagrama de flujo tp1_filtrar_tipo</p>
 </div>
 
 
@@ -92,6 +94,7 @@ Guarda todos los pokemones de la estructura `tp1_t` pasada por parámetro en un 
 
 <div align="center">
   <img src="img/diagrama de flujo_buscar nombre.svg" width="80%">
+  <p>Diagrama de flujo tp1_buscar_nombre</p>
 </div>
 
 
@@ -106,6 +109,7 @@ Guarda todos los pokemones de la estructura `tp1_t` pasada por parámetro en un 
 
 <div align="center">
   <img src="img/diagrama de flujo_con cada pokemon.svg" width="80%">
+  <p>Diagrama de flujo tp1_buscar_orden</p>
 </div>
 
 
@@ -114,6 +118,7 @@ Guarda todos los pokemones de la estructura `tp1_t` pasada por parámetro en un 
 
 <div align="center">
   <img src="img/diagrama de flujo_destruir tp.svg" width=100%">
+  <p>Diagrama de flujo tp1_destruir</p>
 </div>
 
 
