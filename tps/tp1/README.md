@@ -58,7 +58,15 @@ Lee el archivo CSV linea por linea y guarda los pokemones en una estructura `'tp
   <img src="img/diagrama de flujo_leer linea completa.svg" width="100%">
 </div>
 
+`existe_pokemon:`
+<div align="center">
+  <img src="img/diagrama de flujo_existe pokemon.svg" width="100%">
+</div>
 
+`guardar_pokemon:`
+<div align="center">
+  <img src="img/diagrama de flujo_guardar pokemon.svg" width="100%">
+</div>
 
 ## 2. Funcionamiento (EJEMPLO)
 
