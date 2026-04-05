@@ -81,28 +81,41 @@ Guarda todos los pokemones de la estructura `tp1_t` pasada por parámetro en un 
 
 
 ### `tp1_filtrar_tipo:` 
-Guarda todos los pokemones de la estructura `tp1_t` pasada por parámetro en un archivo también pasado por parámetro, de manera tal que tp1_leer_archivo pueda leerlo correctamente. Devuelve NULL en caso de error, o en caso contrario devuelve `tp1_t`.
 
 <div align="center">
-  <img src="img/diagrama de flujo_filtrar tipo.svg" width="80%">
+  <img src="img/diagrama de flujo_filtrar tipo.svg" width="100%">
 </div>
 
 
 
-### `tp1_filtrar_tipo:` 
-Guarda todos los pokemones de la estructura `tp1_t` pasada por parámetro en un archivo también pasado por parámetro, de manera tal que tp1_leer_archivo pueda leerlo correctamente. Devuelve NULL en caso de error, o en caso contrario devuelve `tp1_t`.
+### `tp1_buscar_nombre:` 
 
 <div align="center">
-  <img src="img/diagrama de flujo_filtrar tipo.svg" width="80%">
+  <img src="img/diagrama de flujo_buscar nombre.svg" width="80%">
 </div>
 
 
-## 2. Funcionamiento (EJEMPLO)
+`ordenar_pokemones:`
+<div align="center">
+  <img src="img/diagrama de flujo_ordenar pokemones.svg" width="100%">
+</div>
+
+
+
+### `tp1_buscar_orden:` 
 
 <div align="center">
-  <img src="img/diagrama_flujo.svg" width="70%">
-  <p>Diagrama de flujo del programa explicado con más detalle.</p>
+  <img src="img/diagrama de flujo_con cada pokemon.svg" width="80%">
 </div>
+
+
+
+### `tp1_destruir:` 
+
+<div align="center">
+  <img src="img/diagrama de flujo_destruir tp.svg" width=100%">
+</div>
+
 
 ## 3. Estructura
 Explicar cómo se implementó la/s estructura/s pedida/s en el [enunciado](./ENUNCIADO.md). En esta sección el objetivo es explicar en líneas generales, no técnicas, qué contiene la estructura, para qué y por qué.

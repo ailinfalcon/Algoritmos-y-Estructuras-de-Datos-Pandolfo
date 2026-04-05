@@ -176,6 +176,8 @@ void ordenar_pokemones(struct pokemon **pokemones, int cantidad_pokemones){
         pokemones[i] = pokemones[minimo];
         pokemones[minimo] = tmp;
     }
+
+    return;
 }
 
 /**
