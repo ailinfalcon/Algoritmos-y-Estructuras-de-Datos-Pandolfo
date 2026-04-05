@@ -34,7 +34,7 @@
 ./main archivo acción
 ```
 
-## 1.3. Acciones posibles:
+### 1.3. Acciones posibles:
 
   - **./tp1 pokedex.csv buscar pikachu**: Busca un pokemon con el nombre pikachu y muestra sus datos por pantalla.
   - **./tp1 pokedex.csv mostrar nombre**: Muestra todos los pokemon por orden alfabetico.
@@ -143,17 +143,13 @@ Libera la memoria reservada para el tp, el vector de pokemones, cada pokemon y s
 
 
 ## 3. Estructura
-Explicar cómo se implementó la/s estructura/s pedida/s en el [enunciado](./ENUNCIADO.md). En esta sección el objetivo es explicar en líneas generales, no técnicas, qué contiene la estructura, para qué y por qué.
-
-## 3. Estructura (EJEMPLO)
-Para implementar la estructura decidí hacerlo con un campo..., además tiene un puntero que... y eso permite que....
+Para implementar la estructura `'tp1_t'` decidí definir un campo llamado `pokemones`, que es un vector de `struct pokemones`, para guardar todos lo pokemones que contiene el archivo. Además agrege un campo `cantidad_pokemones` que me facilita el manejo de memoria y la implementación de las funciones de `tp1.h`.
 
 ### 3.1. Diagrama de memoria
 Realizar un diagrama de memoria de la estructura de memoria durante la ejecución del programa, esto debe incluir el stack y el heap con las estructuras contenidas en ellos.
 
-### 3.1 Diagrama de memoria (EJEMPLO)
 <div align="center">
-  <img src="img/diagrama_memoria__1.svg" width="70%">
+  <img src="img/diagrama de memoria.svg" width="70%">
   <p>Diagrama de memoria de la estructura.</p>
 </div>
 
