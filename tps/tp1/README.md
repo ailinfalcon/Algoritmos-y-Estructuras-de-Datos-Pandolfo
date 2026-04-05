@@ -81,7 +81,8 @@ Guarda todos los pokemones de la estructura `tp1_t` pasada por parámetro en un 
 </div>
 
 
-### `tp1_filtrar_tipo:` 
+### `tp1_filtrar_tipo:`
+Ordena y filtra los pokemones del tp según el tipo recibido por parámetro. En caso de error devuelve NULL, en caso contrario devuelve una nueva estructura tp solamente con los pokemones filtrados.
 
 <div align="left">
   <img src="img/diagrama de flujo_filtrar tipo.svg" width="100%">
@@ -91,6 +92,7 @@ Guarda todos los pokemones de la estructura `tp1_t` pasada por parámetro en un 
 
 
 ### `tp1_buscar_nombre:` 
+Busca el nombre recibido por parámetro dentro de los pokemones del tp, también recibido por parámetro, con busqueda binaria. En caso de error, o no encontrarlo devuelve NULL.
 
 <div align="left">
   <img src="img/diagrama de flujo_buscar nombre.svg" width="80%">
@@ -105,7 +107,8 @@ Guarda todos los pokemones de la estructura `tp1_t` pasada por parámetro en un 
 
 
 
-### `tp1_buscar_orden:` 
+### `tp1_buscar_orden:`
+Busca el pokemon numero n recibido por parámetro dentro de los pokemones del tp también recibido por parámetro, que están ordenados alfábeticamente. En caso de ingresar un número negativo o mayor igual a la cantidad de pokemones que contiene el tp, devuelve NULL. Si no hay errores devuelve `struct pokemon`.
 
 <div align="left">
   <img src="img/diagrama de flujo_con cada pokemon.svg" width="100%">
@@ -115,6 +118,7 @@ Guarda todos los pokemones de la estructura `tp1_t` pasada por parámetro en un 
 
 
 ### `tp1_destruir:` 
+Libera la memoria reservada para el tp, el vector de pokemones, cada pokemon y su nombre.
 
 <div align="left">
   <img src="img/diagrama de flujo_destruir tp.svg" width=100%">
