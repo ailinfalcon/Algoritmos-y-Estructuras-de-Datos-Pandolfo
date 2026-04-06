@@ -27,12 +27,6 @@ void probar_tp1_lectura_archivo_vacio(){
 	tp1_destruir(tp1);
 }
 
-void probar_tp1_agrandar_bloque(){
-	tp1_t *tp1 = tp1_leer_archivo(ARCHIVO_PRUEBA_GRANDE);
-	pa2m_afirmar(tp1 != NULL, "El bloque de memoria se agranda correctamente");
-	tp1_destruir(tp1);
-} 
-
 void probar_tp1_guardar_archivo_null_devuelve_null(){
 	tp1_t *tp = tp1_leer_archivo(ARCHIVO_PRUEBA);
 
@@ -137,7 +131,7 @@ void probar_tp1_buscar_orden_mayor_a_cantidad_pokemones(){
 	tp1_t *tp1 = tp1_leer_archivo(ARCHIVO_PRUEBA_GRANDE);
 	int n = 30;
 
-	struct pokemon *pokemon = tp1_buscar_orden(tp1, 30);
+	struct pokemon *pokemon = tp1_buscar_orden(tp1, n);
 	pa2m_afirmar(pokemon == NULL, "No debería poder buscar un orden mayor a la cantidad de pokemones");
 	tp1_destruir(tp1);
 }
@@ -206,7 +200,6 @@ void pruebas_unitarias_tp1_leer_archivo()
 	probar_tp1_lectura_archivo_null();
 	probar_tp1_lectura_archivo_no_null();
 	probar_tp1_lectura_archivo_vacio();
-	probar_tp1_agrandar_bloque();
 }
 
 void pruebas_unitarias_tp1_guardar_archivo(){

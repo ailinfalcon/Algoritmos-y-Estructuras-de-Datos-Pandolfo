@@ -26,7 +26,7 @@
 
 ### 1.1. Compilar el proyecto
 ```bash
- gcc main.c src/tp1.c ../tp0/src/split.c -o main
+ gcc main.c  src/tp1.c ../tp0/src/split.c -Wall -Werror -std=c99 -o main
 ```
 
 ### 1.2. Ejecutar proyecto
@@ -47,7 +47,7 @@ valgrind --leak-check=full ./main archivo accion
 
 ### 1.5. Compilar pruebas
 ```bash
-gcc pruebas/pruebas_alumno.c  src/tp1.c ../tp0/src/split.c -o tp1
+gcc pruebas/pruebas_alumno.c  src/tp1.c ../tp0/src/split.c -Wall -Werror -std=c99 -o tp1
 ```
 
 ### 1.6. Ejecutar pruebas
@@ -143,7 +143,7 @@ Libera la memoria reservada para el tp, el vector de pokemones, cada pokemon y s
 
 
 ## 3. Estructura
-Para implementar la estructura `'tp1_t'` decidí definir dos vectores de `struct pokemon`, uno llamado `pokemones` que mantiene el orden original de los pokemones, y otro `pokemones_ordenados` que tiene los pokemones ordenados alfábeticamente. Ambos vectores me facilitan la implementación de las funciones de la biblioteca. Además agregue un campo `cantidad_pokemones` que me facilita el manejo de memoria y la implementación de la función `tp1_cantidad`.
+Para implementar la estructura `'tp1_t'` decidí definir un vector de `struct pokemon` llamado `pokemones` que mantiene el orden original de los pokemones. Además agregue un campo `cantidad_pokemones` que me facilita el manejo de memoria y la implementación de la función `tp1_cantidad`.
 
 ### 3.1. Diagrama de memoria
 Realizar un diagrama de memoria de la estructura de memoria durante la ejecución del programa, esto debe incluir el stack y el heap con las estructuras contenidas en ellos.
@@ -159,13 +159,13 @@ Realizar un diagrama de memoria de la estructura de memoria durante la ejecució
 - `tp1_cantidad`: Es $O(1)$. La estructura `tp1_t` tiene un campo llamado `cantidad_pokemones` que me permite acceder en tiempo $O(1)$.
 - `tp1_guardar_archivo`: Es $O(n)$. Esta función depende de la cantidad de pokemones (n) que contenga la estructura `tp1_t`, ya que se recorre pokemon por pokemon y se guarda en el archivo.
 - `tp1_filtrar_tipo`: Es $O(n)$. La función recorre todos los pokemones que contenga la estructura `tp1_t` y compara con el tipo a filtrar. En el peor de los casos, recorro todos los elementos ya que todos cumplen con el requisito.
-- `tp1_buscar_nombre`: Es $O(log n)$. Esto se obtiene por que se utiliza el campo `pokemones_ordenados` de la estructura `tp1_t` en la función `buscar_nombre_bb` que utiliza búsqueda binaria, que es $O(log(n))$.
-- `tp1_buscar_orden`: Es $O(1)$. Esto se obtiene por que se utiliza el campo `pokemones_ordenados` de la estructura `tp1_t` y se devuelve el pokemon dentro del vector ordenado en la posicion recibida por parámetro.
+- `tp1_buscar_nombre`: Es $O(n²)$. Esto se obtiene por que se utiliza la función `ordenar_pokemones` y la función `buscar_nombre_bb` que utiliza búsqueda binaria, que es $O(log(n))$.
+- `tp1_buscar_orden`: Es $O(n²)$. Esto se obtiene por que se utiliza la función `ordenar_pokemones` y se devuelve el pokemon dentro del vector ordenado en la posicion recibida por parámetro.
 - `tp1_con_cada_pokemon`: $O(n)$. Esto se obtiene por que recorro todos los pokemones del vector de pokemones de la estructura `tp1_t` hasta que la función pasada por parámetro me de false o haya recorrido todos los pokemones. Entonces, en el peor de los casos, recorro todos los pokemones.
 - `tp1_destruir`: $O(n)$. Recorro el vector de pokemones liberando la memoria reservada para cada uno y su nombre, esto es $O(n)$. Una vez liberada esa memoria, libero la memoria reservada para el vector de pokemones, y finalmente la reservada para la estructura `tp1_t`
 
 ## 4. Decisiones de diseño y/o complejidades de implementación (EJEMPLO)
-Para la estructura `tp1_t` decidi definir un campo `struct pokemon **pokemones_ordenados` que me facilita las funciones `tp1_buscar_nombre`, `tp1_buscar_orden` y `tp1_con_cada_pokemon`, en las cuales necesito tener los pokemones ordenados alfábeticamente. Además, tener el orden original de los pokemones, me permitió desarrollar con más facilidad la función `tp1_guardar_archivo`.
+Para la estructura `tp1_t` deicidi definir un vector de `struct pokemon` llamado `pokemones` para el desarrollo de todas las funciones de la biblioteca, y me permitió desarrollar con más facilidad la función `tp1_guardar_archivo`. 
 
 ## 5. Respuestas a las preguntas teóricas
 

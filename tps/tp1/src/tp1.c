@@ -22,7 +22,6 @@
 struct tp1 {
     int cantidad_pokemones;
     struct pokemon **pokemones;
-    struct pokemon **pokemones_ordenados;
 };
 
 /**
@@ -158,9 +157,9 @@ int guardar_pokemon(struct pokemon **pokemones, int i, char *nombre_pokemon, cha
 }
 
 /**
- * Ordena los pokemones por orden alfabético (de menor a mayor) según el nombre, y devuelve la strcut pokemon.
+ * Ordena los pokemones por orden alfabético (de menor a mayor) según el nombre.
  */
-struct pokemon **ordenar_pokemones(struct pokemon **pokemones, int cantidad_pokemones){
+void ordenar_pokemones(struct pokemon **pokemones, int cantidad_pokemones){
     int i, j, minimo;
     struct pokemon *tmp;
 
@@ -178,7 +177,7 @@ struct pokemon **ordenar_pokemones(struct pokemon **pokemones, int cantidad_poke
         pokemones[minimo] = tmp;
     }
 
-    return pokemones;
+    return;
 }
 
 /**
@@ -221,7 +220,7 @@ tp1_t *tp1_leer_archivo(const char *nombre){
             if(!nuevo_bloque){
                 free(pokemones);
                 free(leida);
-                tp1_destruir(tp1);
+                free(tp1);
                 fclose(archivo);
                 return NULL;
             }
@@ -254,7 +253,6 @@ tp1_t *tp1_leer_archivo(const char *nombre){
     free(leida);
     tp1->cantidad_pokemones = cantidad_pokemones;
     tp1->pokemones = pokemones;
-    tp1->pokemones_ordenados = ordenar_pokemones(tp1->pokemones, tp1->cantidad_pokemones);
 
     fclose(archivo);
 
@@ -380,9 +378,9 @@ struct pokemon *buscar_nombre_bb(tp1_t *tp, const char *nombre, int inicio, int 
     
     int medio = (fin+inicio)/2;
     
-    if(strcmp(nombre, tp->pokemones_ordenados[medio]->nombre) == 0){
+    if(strcmp(nombre, tp->pokemones[medio]->nombre) == 0){
         return tp->pokemones[medio];
-    } else if(strcmp(nombre, tp->pokemones_ordenados[medio]->nombre) > 0){
+    } else if(strcmp(nombre, tp->pokemones[medio]->nombre) > 0){
         return buscar_nombre_bb(tp, nombre, medio + 1, fin);
     } else {
         return buscar_nombre_bb(tp, nombre, inicio, medio - 1);
@@ -394,10 +392,15 @@ struct pokemon *buscar_nombre_bb(tp1_t *tp, const char *nombre, int inicio, int 
 * En caso de no encontrarlo devuelve NULL.
 */
 struct pokemon *tp1_buscar_nombre(tp1_t *tp, const char *nombre){
+    if(!tp || !nombre){
+        return NULL;
+    }
+
     if(!existe_pokemon(tp->pokemones, tp->cantidad_pokemones, (char*)nombre)){
         return NULL;
     }
     
+    ordenar_pokemones(tp->pokemones, tp->cantidad_pokemones);
     return buscar_nombre_bb(tp, nombre, 0, tp->cantidad_pokemones - 1);
 }
 
@@ -407,6 +410,10 @@ struct pokemon *tp1_buscar_nombre(tp1_t *tp, const char *nombre){
 * En caso de no encontrarlo devuelve NULL.
 */
 struct pokemon *tp1_buscar_orden(tp1_t *tp, int n){
+    if(!tp){
+        return NULL;
+    }
+
     if(n < 0){
         return NULL;
     }
@@ -414,8 +421,10 @@ struct pokemon *tp1_buscar_orden(tp1_t *tp, int n){
     if (n >= tp->cantidad_pokemones){
         return NULL;
     }
+
+    ordenar_pokemones(tp->pokemones, tp->cantidad_pokemones);
     
-    return tp->pokemones_ordenados[n];
+    return tp->pokemones[n];
 }
 
 /**
@@ -430,9 +439,10 @@ struct pokemon *tp1_buscar_orden(tp1_t *tp, int n){
         return ERROR;
     }
 
+    ordenar_pokemones(un_tp->pokemones, un_tp->cantidad_pokemones);
     size_t contador = 0;
     for(int i = 0; i < un_tp->cantidad_pokemones; i++){
-        if(!f(un_tp->pokemones_ordenados[i], extra)){
+        if(!f(un_tp->pokemones[i], extra)){
             return contador;
         }
         
