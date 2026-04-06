@@ -143,7 +143,7 @@ Libera la memoria reservada para el tp, el vector de pokemones, cada pokemon y s
 
 
 ## 3. Estructura
-Para implementar la estructura `'tp1_t'` decidí definir un campo llamado `pokemones`, que es un vector de `struct pokemones`, para guardar todos lo pokemones que contiene el archivo. Además agrege un campo `cantidad_pokemones` que me facilita el manejo de memoria y la implementación de las funciones de `tp1.h`.
+Para implementar la estructura `'tp1_t'` decidí definir dos vectores de `struct pokemon`, uno llamado `pokemones` que mantiene el orden original de los pokemones, y otro `pokemones_ordenados` que tiene los pokemones ordenados alfábeticamente. Ambos vectores me facilitan la implementación de las funciones de la biblioteca. Además agregue un campo `cantidad_pokemones` que me facilita el manejo de memoria y la implementación de la función `tp1_cantidad`.
 
 ### 3.1. Diagrama de memoria
 Realizar un diagrama de memoria de la estructura de memoria durante la ejecución del programa, esto debe incluir el stack y el heap con las estructuras contenidas en ellos.
@@ -153,29 +153,40 @@ Realizar un diagrama de memoria de la estructura de memoria durante la ejecució
   <p>Diagrama de memoria de la estructura.</p>
 </div>
 
-### 3.2. Análisis de complejidades (EJEMPLO 2)
-|      Función      |Complejidad|                 Justificación                  |
-|:-----------------:|:---------:|:----------------------------------------------:|
-|      `fun1`       |  $O(1)$   |Tiene como parámetro... y, al leer una línea....|
-|      `fun2`       |  $O(n)$   |Tiene como parámetro..., la cual....            |
-|      `fun3`       |  $O(n^2)$ |Tiene como parámetro... y se encarga de....     |
+### 3.2. Análisis de complejidades
 
-## 4. Decisiones de diseño y/o complejidades de implementación
-Explicar las decisiones de diseño y/o las complejidades de implementación que hubo durante la resolución del TP.
+- `tp1_leer_archivo`: $O(n)$. Esta complejidad se obtiene por que se utiliza la función `leer_linea_completa` que es O(m), siendo m la cantidad de caracteres de la linea y siendo k la cantidad de lineas del archivo, queda O(m * k), como m*k es una constante, tomando n = m * k, queda O(n).
+- `tp1_cantidad`: Es $O(1)$. La estructura `tp1_t` tiene un campo llamado `cantidad_pokemones` que me permite acceder en tiempo $O(1)$.
+- `tp1_guardar_archivo`: Es $O(n)$. Esta función depende de la cantidad de pokemones (n) que contenga la estructura `tp1_t`, ya que se recorre pokemon por pokemon y se guarda en el archivo.
+- `tp1_filtrar_tipo`: Es $O(n)$. La función recorre todos los pokemones que contenga la estructura `tp1_t` y compara con el tipo a filtrar. En el peor de los casos, recorro todos los elementos ya que todos cumplen con el requisito.
+- `tp1_buscar_nombre`: Es $O(log n)$. Esto se obtiene por que se utiliza el campo `pokemones_ordenados` de la estructura `tp1_t` en la función `buscar_nombre_bb` que utiliza búsqueda binaria, que es $O(log(n))$.
+- `tp1_buscar_orden`: Es $O(1)$. Esto se obtiene por que se utiliza el campo `pokemones_ordenados` de la estructura `tp1_t` y se devuelve el pokemon dentro del vector ordenado en la posicion recibida por parámetro.
+- `tp1_con_cada_pokemon`: $O(n)$. Esto se obtiene por que recorro todos los pokemones del vector de pokemones de la estructura `tp1_t` hasta que la función pasada por parámetro me de false o haya recorrido todos los pokemones. Entonces, en el peor de los casos, recorro todos los pokemones.
+- `tp1_destruir`: $O(n)$. Recorro el vector de pokemones liberando la memoria reservada para cada uno y su nombre, esto es $O(n)$. Una vez liberada esa memoria, libero la memoria reservada para el vector de pokemones, y finalmente la reservada para la estructura `tp1_t`
 
 ## 4. Decisiones de diseño y/o complejidades de implementación (EJEMPLO)
-La mayor complejidad en el TP se encuentra en la función `foo` que requiere hacer...; es por esto que decidí.... Además, decidí que el programa haga... para mejorar la implementación.
+Para la estructura `tp1_t` decidi definir un campo `struct pokemon **pokemones_ordenados` que me facilita las funciones `tp1_buscar_nombre`, `tp1_buscar_orden` y `tp1_con_cada_pokemon`, en las cuales necesito tener los pokemones ordenados alfábeticamente. Además, tener el orden original de los pokemones, me permitió desarrollar con más facilidad la función `tp1_guardar_archivo`.
 
 ## 5. Respuestas a las preguntas teóricas
-Deberás incluir en esta sección las respuestas a las preguntas teóricas indicadas en el [enunciado](./ENUNCIADO.md) del TP.
 
-## 5. Respuestas a las preguntas teóricas (EJEMPLO)
+### 5.1. Explicar la elección de la estructura para implementar la funcionalidad pedida. Justifique el uso de cada uno de los campos de la estructura.
+Respondido en su respectiva sección.
+### 5.2 Dar una definición de complejidad computacional y explique cómo se calcula.
+La complejidad computacional permite analizar y determinar cuantos recursos computacionales consume cierto algoritmo. AL hablar de recursos, se hace referencia a tiempo o espacio que el algoritmo necesita y utiliza durante su ejecución. La complejidad computacional, sirve para determinar y comparar algoritmos para saber cúal será mejor en la resolución de un problema. 
 
-### 5.1. ¿Porqué...?
+Para calcular la complejidad se deben contabilizar las instrucciones ejecutadas:
+Para las iteraciones, el tiempo de ejecución es: tiempo de ejecución de las instrucción dentro de la iteración * la cantidad de iteraciones.
+Para las iteraciones anidadas, se deben analizar de adentro hacia afuera, el tiempo de una instrucción dentro de un iteración anidada será: tiempo de la instrucción * cantidad iteraciones de cada iteracion.
+Para las condionales, el tiempo nuna será: mayor al tiempo de ejecución de la condición + el mayor tiempo entre las instrucciones de cada condicional.
+
+Para algoritmos recursivos, se utiliza el teorema maestro: T(n) = AT(n/B) + f(n)
+DOnde A es la cantidad de llamados recursivos ejecutados, B es cuanto se divide el problema en cada llamado recursivo y f(n) es el costo de dividir y combinarlo.
+
+### 5.3 Explicar con diagramas cómo quedan dispuestas las estructuras y elementos en memoria.
 Respondido en su respectiva sección.
 
-### 5.2 ¿Cómo...?
-Para implementar el....
+### 5.4 Justificar la complejidad computacional temporal de **cada una** de las funciones que se piden implementar.
+Respondido en su respectiva sección.
 
-### 5.3 ¿Cuál fue el...?
-El motivo fue....
+### 5.5 Explique qué dificultades tuvo para implementar las funcionalidades pedidas en el main (si tuvo alguna) y explique si alguna de estas dificultades se podría haber evitado modificando la definición del .h
+No tuve dificultades para implementar el main.

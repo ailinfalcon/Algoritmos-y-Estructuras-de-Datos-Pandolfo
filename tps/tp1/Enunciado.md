@@ -90,7 +90,7 @@ En lo que respecta a este trabajo, los nombres de los pokemon no distinguen dife
 
 ## Puntos teóricos
 
- - Explicar la elección de la estructura para implementar la funcionalida pedida. Justifique el uso de cada uno de los campos de la estructura.
+ - Explicar la elección de la estructura para implementar la funcionalidad pedida. Justifique el uso de cada uno de los campos de la estructura.
  - Dar una definición de complejidad computacional y explique cómo se calcula.
  - Explicar con diagramas cómo quedan dispuestas las estructuras y elementos en memoria.
  - Justificar la complejidad computacional temporal de **cada una** de las funciones que se piden implementar.
